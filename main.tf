@@ -1,5 +1,5 @@
 locals {
-  additional_ips = join(" ", [for ip in var.additional_ips : "${ip}"])
+  additional_ips = join(" ", [for ip in var.additional_ips : ip])
 }
 
 resource "azurerm_private_endpoint" "this" {
