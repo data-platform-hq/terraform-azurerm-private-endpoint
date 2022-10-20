@@ -27,7 +27,7 @@ resource "azurerm_private_endpoint" "this" {
 
 
 resource "null_resource" "additional_ip" {
-  count = length(var.private_dns_zone_id) == 0 && length(var.private_dns_zone_name) == 0 && length(var.private_dns_zone_resource_group) == 0 ? 0 : 1
+  count = length(var.private_dns_zone_name) == 0 && length(var.private_dns_zone_resource_group) == 0 ? 0 : 1
 
   triggers = {
     zone_resource_group = var.private_dns_zone_resource_group
