@@ -2,6 +2,41 @@
 Terraform module for creation Azure Private Endpoint
 
 ## Usage
+This module provisions Azure Private Endpoint, for instance, it is possible to create Private Endpoint for compliant Azure Services, create Private DNS Zone Group for that Private Endpoint and even associate additional ip address to Private Endpoint DNS A Record
+
+Below is an example on how to create Private Endpoint for Storage Account's Data Lake File System Gen2 and associate it with certain Private DNS Zone:
+
+```hcl
+data "azurerm_subnet" "example" {
+  name                 = "example_subnet"
+  virtual_network_name = "example_vnet"
+  resource_group_name  = "example_rg"
+}
+
+data "azurerm_storage_account" "example" {
+  name           = "example_storage_account"
+  resource_group = "example_rg"
+}
+
+data "azurerm_private_dns_zone" "example" {
+  name                = "privatelink.dfs.core.windows.net"
+  resource_group_name = "example_rg"
+}
+
+module "private_endpoint" {
+  source   = "data-platform-hq/private-endpoint/azurerm"
+  
+  project                = "datahq"
+  env                    = "example"
+  location               = "eastus"
+  resource_group         = "example_rg"
+  prefix                 = "uc"
+  subnet_id              = data.azurerm_subnet.example.id
+  connection_resource_id = data.azurerm_storage_account.example.id
+  subresource_names      = "dfs"
+  private_dns_zone_id    = [data.azurerm_private_dns_zone.example.id]
+}
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
