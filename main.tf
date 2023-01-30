@@ -1,30 +1,31 @@
 locals {
   additional_ips = join(" ", [for ip in var.additional_ips : ip])
+  prefix         = length(var.prefix) == 0 ? "" : "${var.prefix}-"
 }
 
 resource "azurerm_private_endpoint" "this" {
-  location            = var.location
-  name                = "pe-${var.prefix}${var.project}-${var.env}-${var.location}"
-  resource_group_name = var.resource_group
-  subnet_id           = var.subnet_id
-  tags                = var.tags
+  location                      = var.location
+  name                          = "pe-${local.prefix}${var.project}-${var.env}-${var.location}"
+  custom_network_interface_name = "nic-${local.prefix}${var.project}-${var.env}-${var.location}"
+  resource_group_name           = var.resource_group
+  subnet_id                     = var.subnet_id
+  tags                          = var.tags
 
   dynamic "private_dns_zone_group" {
     for_each = [for zone in var.private_dns_zone_id : zone]
     content {
-      name                 = "group-${var.prefix}${var.project}-${var.env}-${var.location}"
+      name                 = "group-${local.prefix}${var.project}-${var.env}-${var.location}"
       private_dns_zone_ids = [private_dns_zone_group.value]
     }
   }
 
   private_service_connection {
-    name                           = "psc-${var.prefix}${var.project}-${var.env}-${var.location}"
+    name                           = "psc-${local.prefix}${var.project}-${var.env}-${var.location}"
     is_manual_connection           = var.is_mutual_connection
     private_connection_resource_id = var.connection_resource_id
     subresource_names              = [var.subresource_names]
   }
 }
-
 
 resource "null_resource" "additional_ip" {
   count = length(var.private_dns_zone_name) == 0 && length(var.private_dns_zone_resource_group) == 0 ? 0 : 1
