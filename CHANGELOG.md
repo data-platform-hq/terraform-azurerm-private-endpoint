@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/compare/v1.0.0...v1.0.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* nix name parameter; prefix creation improvement ([4bca5d5](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/commit/4bca5d51662c95a1cbe5c0ce31568043c141d4ae))
+* prefix from locals ([6133308](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/commit/61333082cc175e3871f55dfef2e4a5e5d255ba39))
+
 # 1.0.0 (2022-10-20)
 
 
