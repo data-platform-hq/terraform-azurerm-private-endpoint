@@ -9,14 +9,14 @@ Terraform module for creation Azure Private Endpoint
 | Name                                                                      | Version   |
 | ------------------------------------------------------------------------- | --------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0  |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.23.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.40.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null)                | >=3.1.1   |
 
 ## Providers
 
 | Name                                                          | Version |
 | ------------------------------------------------------------- | ------- |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.24.0  |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.40.0  |
 | <a name="provider_null"></a> [null](#provider\_null)          | 3.1.1   |
 
 ## Modules
@@ -39,7 +39,7 @@ No modules.
 | <a name="input_location"></a> [location](#input\_location)                                                                              | Azure location                                                                                                            | `string`       | n/a     |   yes    |
 | <a name="input_resource_group"></a> [resource\_group](#input\_resource\_group)                                                          | Resource group where Private Endpoint would be created                                                                    | `string`       | n/a     |   yes    |
 | <a name="input_subnet_id"></a> [resource\_subnet\_id](#input\_subnet\_id)                                                               | The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint                          | `string`       | n/a     |   yes    |
-| <a name="input_connection_resource_id"></a> [resource\_connection\_resource\_id](#input\_connection\_resource\_id)                      | The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to                     | `string`       | n/a     |   yes    |
+| <a name="input_connection_resource_id"></a> [connection\_resource\_id](#input\_connection\_resource\_id)                      | The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to                     | `string`       | n/a     |   yes    |
 | <a name="input_subresource_names"></a> [subresource\_names](#input\_subresource\_names)                                                 | A list of subresource names which the Private Endpoint is able to connect to                                              | `string`       | n/a     |   yes    |
 | <a name="input_prefix"></a> [prefix](#input\_prefix)                                                                                    | Prefix used for name creation                                                                                             | `string`       | ""      |    no    |
 | <a name="input_tags"></a> [tags](#input\_tags)                                                                                          | tags for resources                                                                                                        | `map(string)`  | {}      |    no    |
