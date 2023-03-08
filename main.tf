@@ -1,12 +1,16 @@
 locals {
-  additional_ips = join(" ", [for ip in var.additional_ips : ip])
-  prefix         = length(var.prefix) == 0 ? "" : "${var.prefix}-"
+  additional_ips          = join(" ", [for ip in var.additional_ips : ip])
+  prefix                  = length(var.prefix) == 0 ? "" : "${var.prefix}-"
+  pe_name                 = var.custom_private_endpoint_name == null ? "pe-${local.prefix}${var.project}-${var.env}-${var.location}" : "${local.prefix}${var.custom_private_endpoint_name}"
+  nic_name                = var.custom_nic_name == null ? "nic-${local.prefix}${var.project}-${var.env}-${var.location}" : "${local.prefix}${var.custom_nic_name}"
+  dns_group_name          = var.custom_dns_zone_group_name == null ? "group-${local.prefix}${var.project}-${var.env}-${var.location}" : "${local.prefix}${var.custom_dns_zone_group_name}"
+  service_connection_name = var.custom_service_connection_name == null ? "psc-${local.prefix}${var.project}-${var.env}-${var.location}" : "${local.prefix}${var.custom_service_connection_name}"
 }
 
 resource "azurerm_private_endpoint" "this" {
   location                      = var.location
-  name                          = "pe-${local.prefix}${var.project}-${var.env}-${var.location}"
-  custom_network_interface_name = "nic-${local.prefix}${var.project}-${var.env}-${var.location}"
+  name                          = local.pe_name
+  custom_network_interface_name = local.nic_name
   resource_group_name           = var.resource_group
   subnet_id                     = var.subnet_id
   tags                          = var.tags
@@ -14,13 +18,13 @@ resource "azurerm_private_endpoint" "this" {
   dynamic "private_dns_zone_group" {
     for_each = [for zone in var.private_dns_zone_id : zone]
     content {
-      name                 = "group-${local.prefix}${var.project}-${var.env}-${var.location}"
+      name                 = local.dns_group_name
       private_dns_zone_ids = [private_dns_zone_group.value]
     }
   }
 
   private_service_connection {
-    name                           = "psc-${local.prefix}${var.project}-${var.env}-${var.location}"
+    name                           = local.service_connection_name
     is_manual_connection           = var.is_mutual_connection
     private_connection_resource_id = var.connection_resource_id
     subresource_names              = [var.subresource_names]
