@@ -45,6 +45,30 @@ variable "tags" {
   default     = {}
 }
 
+variable "custom_private_endpoint_name" {
+  type        = string
+  description = "Specifies the Name of the Private Endpoint"
+  default     = null
+}
+
+variable "custom_nic_name" {
+  type        = string
+  description = "The custom name of the network interface attached to the private endpoint"
+  default     = null
+}
+
+variable "custom_dns_zone_group_name" {
+  type        = string
+  description = "Specifies the Name of the Private DNS Zone Group"
+  default     = null
+}
+
+variable "custom_service_connection_name" {
+  type        = string
+  description = "Specifies the Name of the Private Service Connection"
+  default     = null
+}
+
 variable "is_mutual_connection" {
   type        = bool
   description = "Does the Private Endpoint require Manual Approval from the remote resource owner?"
