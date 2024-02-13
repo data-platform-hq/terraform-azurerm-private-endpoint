@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/compare/v1.1.0...v1.2.0) (2024-02-13)
+
+
+### Features
+
+* updated naming convention ([e2097f6](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/commit/e2097f65f83ea881eafe2b4623b3a29d9c3f7f42))
+
 # [1.1.0](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/compare/v1.0.1...v1.1.0) (2023-03-09)
 
 
