@@ -1,5 +1,5 @@
 variable "private_endpoint_name" {
-  type = string
+  type        = string
   description = "Private Endpoint name"
 }
 
@@ -29,15 +29,15 @@ variable "subresource_names" {
 }
 
 variable "network_interface_name" {
-  type = string
+  type        = string
   description = "Custom Network Interface name"
-  default = null
+  default     = null
 }
 
 variable "private_service_connection_name" {
-  type = string
+  type        = string
   description = "Custom Service Connection name of Private Endpoints"
-  default = null
+  default     = null
 }
 
 #variable "prefix" {
