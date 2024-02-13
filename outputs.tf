@@ -3,6 +3,11 @@ output "id" {
   description = "Id of Private Endpoint"
 }
 
+output "name" {
+  value       = azurerm_private_endpoint.this.name
+  description = "Name of Private Endpoint"
+}
+
 output "custom_dns_configs" {
   value       = azurerm_private_endpoint.this.custom_dns_configs
   description = "Custom DNS Record properties. If a Private DNS Zone Group has been defined and is currently connected correctly this block will be empty"

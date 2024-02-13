@@ -1,11 +1,6 @@
-variable "project" {
+variable "private_endpoint_name" {
   type        = string
-  description = "Project name"
-}
-
-variable "env" {
-  type        = string
-  description = "Environment name"
+  description = "Private Endpoint name"
 }
 
 variable "location" {
@@ -33,40 +28,22 @@ variable "subresource_names" {
   description = "A list of subresource names which the Private Endpoint is able to connect to. "
 }
 
-variable "prefix" {
+variable "network_interface_name" {
   type        = string
-  description = "Prefix used for name creation"
-  default     = ""
+  description = "Custom Network Interface name"
+  default     = null
+}
+
+variable "private_service_connection_name" {
+  type        = string
+  description = "Custom Service Connection name of Private Endpoints"
+  default     = null
 }
 
 variable "tags" {
   type        = map(string)
   description = "tags for resources"
   default     = {}
-}
-
-variable "custom_private_endpoint_name" {
-  type        = string
-  description = "Specifies the Name of the Private Endpoint"
-  default     = null
-}
-
-variable "custom_nic_name" {
-  type        = string
-  description = "The custom name of the network interface attached to the private endpoint"
-  default     = null
-}
-
-variable "custom_dns_zone_group_name" {
-  type        = string
-  description = "Specifies the Name of the Private DNS Zone Group"
-  default     = null
-}
-
-variable "custom_service_connection_name" {
-  type        = string
-  description = "Specifies the Name of the Private Service Connection"
-  default     = null
 }
 
 variable "is_mutual_connection" {
@@ -78,22 +55,5 @@ variable "is_mutual_connection" {
 variable "private_dns_zone_id" {
   type        = set(string)
   description = "Specifies the set of Private DNS Zones to include within the Private DNS Zone Group"
-  default     = []
-}
-variable "private_dns_zone_name" {
-  type        = string
-  description = "Name of external Private DNS Zone. Used for additional IP association within A Record Set"
-  default     = ""
-}
-
-variable "private_dns_zone_resource_group" {
-  type        = string
-  description = "Name of Resource Group where external Private DNS Zone exists. Used for additional IP association within A Record Set"
-  default     = ""
-}
-
-variable "additional_ips" {
-  type        = list(string)
-  description = "List of additional IPs to include in A Record of Private Endpoint. Used for additional IP association within A Record Set"
   default     = []
 }
