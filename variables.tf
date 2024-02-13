@@ -1,11 +1,6 @@
-variable "project" {
-  type        = string
-  description = "Project name"
-}
-
-variable "env" {
-  type        = string
-  description = "Environment name"
+variable "private_endpoint_name" {
+  type = string
+  description = "Private Endpoint name"
 }
 
 variable "location" {
@@ -33,40 +28,28 @@ variable "subresource_names" {
   description = "A list of subresource names which the Private Endpoint is able to connect to. "
 }
 
-variable "prefix" {
-  type        = string
-  description = "Prefix used for name creation"
-  default     = ""
+variable "network_interface_name" {
+  type = string
+  description = "Custom Network Interface name"
+  default = null
 }
+
+variable "private_service_connection_name" {
+  type = string
+  description = "Custom Service Connection name of Private Endpoints"
+  default = null
+}
+
+#variable "prefix" {
+#  type        = string
+#  description = "Prefix used for name creation"
+#  default     = ""
+#}
 
 variable "tags" {
   type        = map(string)
   description = "tags for resources"
   default     = {}
-}
-
-variable "custom_private_endpoint_name" {
-  type        = string
-  description = "Specifies the Name of the Private Endpoint"
-  default     = null
-}
-
-variable "custom_nic_name" {
-  type        = string
-  description = "The custom name of the network interface attached to the private endpoint"
-  default     = null
-}
-
-variable "custom_dns_zone_group_name" {
-  type        = string
-  description = "Specifies the Name of the Private DNS Zone Group"
-  default     = null
-}
-
-variable "custom_service_connection_name" {
-  type        = string
-  description = "Specifies the Name of the Private Service Connection"
-  default     = null
 }
 
 variable "is_mutual_connection" {
@@ -92,8 +75,8 @@ variable "private_dns_zone_resource_group" {
   default     = ""
 }
 
-variable "additional_ips" {
-  type        = list(string)
-  description = "List of additional IPs to include in A Record of Private Endpoint. Used for additional IP association within A Record Set"
-  default     = []
-}
+#variable "additional_ips" {
+#  type        = list(string)
+#  description = "List of additional IPs to include in A Record of Private Endpoint. Used for additional IP association within A Record Set"
+#  default     = []
+#}
