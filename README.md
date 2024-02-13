@@ -70,8 +70,6 @@ No modules.
 | <a name="input_location"></a> [location](#input\_location) | Azure location | `string` | n/a | yes |
 | <a name="input_network_interface_name"></a> [network\_interface\_name](#input\_network\_interface\_name) | Custom Network Interface name | `string` | `null` | no |
 | <a name="input_private_dns_zone_id"></a> [private\_dns\_zone\_id](#input\_private\_dns\_zone\_id) | Specifies the set of Private DNS Zones to include within the Private DNS Zone Group | `set(string)` | `[]` | no |
-| <a name="input_private_dns_zone_name"></a> [private\_dns\_zone\_name](#input\_private\_dns\_zone\_name) | Name of external Private DNS Zone. Used for additional IP association within A Record Set | `string` | `""` | no |
-| <a name="input_private_dns_zone_resource_group"></a> [private\_dns\_zone\_resource\_group](#input\_private\_dns\_zone\_resource\_group) | Name of Resource Group where external Private DNS Zone exists. Used for additional IP association within A Record Set | `string` | `""` | no |
 | <a name="input_private_endpoint_name"></a> [private\_endpoint\_name](#input\_private\_endpoint\_name) | Private Endpoint name | `string` | n/a | yes |
 | <a name="input_private_service_connection_name"></a> [private\_service\_connection\_name](#input\_private\_service\_connection\_name) | Custom Service Connection name of Private Endpoints | `string` | `null` | no |
 | <a name="input_resource_group"></a> [resource\_group](#input\_resource\_group) | Resource group where Private Endpoint would be created | `string` | n/a | yes |

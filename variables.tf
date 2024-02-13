@@ -40,12 +40,6 @@ variable "private_service_connection_name" {
   default     = null
 }
 
-#variable "prefix" {
-#  type        = string
-#  description = "Prefix used for name creation"
-#  default     = ""
-#}
-
 variable "tags" {
   type        = map(string)
   description = "tags for resources"
@@ -63,20 +57,3 @@ variable "private_dns_zone_id" {
   description = "Specifies the set of Private DNS Zones to include within the Private DNS Zone Group"
   default     = []
 }
-variable "private_dns_zone_name" {
-  type        = string
-  description = "Name of external Private DNS Zone. Used for additional IP association within A Record Set"
-  default     = ""
-}
-
-variable "private_dns_zone_resource_group" {
-  type        = string
-  description = "Name of Resource Group where external Private DNS Zone exists. Used for additional IP association within A Record Set"
-  default     = ""
-}
-
-#variable "additional_ips" {
-#  type        = list(string)
-#  description = "List of additional IPs to include in A Record of Private Endpoint. Used for additional IP association within A Record Set"
-#  default     = []
-#}
