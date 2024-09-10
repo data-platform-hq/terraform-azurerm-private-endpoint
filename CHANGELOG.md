@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/compare/v1.2.0...v1.3.0) (2024-09-10)
+
+
+### Bug Fixes
+
+* added security KICS scan action ([20e33d0](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/commit/20e33d0ae964dcf01058b2d2ea2a40035a953f64))
+* replaced pre-commit repo docs creation/update by GH Actions ([62f0c6f](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/commit/62f0c6f8ab04a3cdfa61d5d71ba20b3c3a06c4af))
+
+
+### Features
+
+* upgrade to AzureRM v4 ([3ea65a4](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/commit/3ea65a498a25750421feac59fb3c72b1a0278f5b))
+
 # [1.2.0](https://github.com/data-platform-hq/terraform-azurerm-private-endpoint/compare/v1.1.0...v1.2.0) (2024-02-13)
 
 
